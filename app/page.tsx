@@ -9,6 +9,7 @@ import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
 import { Testimonials } from "@/components/landing/testimonials";
 import { Team } from "@/components/landing/team";
+import { Ticker } from "@/components/landing/ticker";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Background />
       <Header />
       <Hero />
+      <Ticker />
       <FormCta />
       <DevelopmentService />
       <FormCta />
