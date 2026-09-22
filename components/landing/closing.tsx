@@ -1,6 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useForm } from "@tanstack/react-form";
+import { useMutation } from "@tanstack/react-query";
+import { z } from "zod";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
 
 const projectTypes = [
@@ -18,6 +21,14 @@ const timelines = [
   "Within a year",
   "I am not sure yet",
 ];
+const projectSchema = z.object({
+  projectType: z.string().min(1),
+  timeline: z.string().min(1),
+  name: z.string().trim().min(1).max(100),
+  role: z.string().trim().max(100),
+  email: z.string().email(),
+  phone: z.string().trim().min(5).max(30),
+});
 
 function SelectField({
   label,
@@ -81,13 +92,45 @@ function SelectField({
 }
 
 export function Closing() {
-  const [projectType, setProjectType] = useState("");
-  const [timeline, setTimeline] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const form = useForm({
+    defaultValues: {
+      projectType: "",
+      timeline: "",
+      name: "",
+      role: "",
+      email: "",
+      phone: "",
+    },
+    onSubmit: async ({ value }) => submitMutation.mutate(value),
+  });
+  const projectType = form.state.values.projectType;
+  const timeline = form.state.values.timeline;
+  const submitMutation = useMutation({
+    mutationFn: async (values: typeof form.state.values) => {
+      const data = projectSchema.parse(values);
+      const message = [
+        "Hello Stallion Advertising, I would like to discuss a free MVP.",
+        "",
+        `Product type: ${data.projectType}`,
+        `Launch timeline: ${data.timeline}`,
+        `Name: ${data.name}`,
+        `Role: ${data.role || "Not specified"}`,
+        `Email: ${data.email}`,
+        `Phone: ${data.phone}`,
+      ].join("\n");
+      window.open(
+        `https://wa.me/31687627929?text=${encodeURIComponent(message)}`,
+        "_blank",
+        "noopener,noreferrer",
+      );
+    },
+    onSuccess: () => setSubmitted(true),
+  });
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    form.handleSubmit();
   }
 
   return (
@@ -126,13 +169,13 @@ export function Closing() {
                 label="Type of product"
                 value={projectType}
                 options={projectTypes}
-                onChange={setProjectType}
+                onChange={(value) => form.setFieldValue("projectType", value)}
               />
               <SelectField
                 label="When do you want to launch?"
                 value={timeline}
                 options={timelines}
-                onChange={setTimeline}
+                onChange={(value) => form.setFieldValue("timeline", value)}
               />
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
@@ -142,6 +185,9 @@ export function Closing() {
                   required
                   name="name"
                   autoComplete="name"
+                  onChange={(event) =>
+                    form.setFieldValue("name", event.target.value)
+                  }
                   className="mt-2 min-h-13 w-full rounded-xl border border-white/12 bg-[#0d1011] px-4 text-[15px] text-white outline-none transition placeholder:text-[#777d7e] focus:border-[#bafc0c]"
                   placeholder="Your name"
                 />
@@ -152,6 +198,9 @@ export function Closing() {
                 <input
                   name="role"
                   autoComplete="organization-title"
+                  onChange={(event) =>
+                    form.setFieldValue("role", event.target.value)
+                  }
                   className="mt-2 min-h-13 w-full rounded-xl border border-white/12 bg-[#0d1011] px-4 text-[15px] text-white outline-none transition placeholder:text-[#777d7e]"
                   placeholder="CEO, owner, manager..."
                 />
@@ -165,6 +214,9 @@ export function Closing() {
                   type="email"
                   name="email"
                   autoComplete="email"
+                  onChange={(event) =>
+                    form.setFieldValue("email", event.target.value)
+                  }
                   className="mt-2 min-h-13 w-full rounded-xl border border-white/12 bg-[#0d1011] px-4 text-[15px] text-white outline-none transition placeholder:text-[#777d7e] focus:border-[#bafc0c]"
                   placeholder="you@company.com"
                 />
@@ -176,6 +228,9 @@ export function Closing() {
                   type="tel"
                   name="phone"
                   autoComplete="tel"
+                  onChange={(event) =>
+                    form.setFieldValue("phone", event.target.value)
+                  }
                   className="mt-2 min-h-13 w-full rounded-xl border border-white/12 bg-[#0d1011] px-4 text-[15px] text-white outline-none transition placeholder:text-[#777d7e] focus:border-[#bafc0c]"
                   placeholder="+212 ..."
                 />
