@@ -21,22 +21,20 @@ export function Hero() {
       </video>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0c0d]/70 to-[#0a0c0d]/55" />
       <div className="w-full max-w-[1050px] px-5 pt-28 pb-18 text-center">
-        <p className="inline-flex items-center gap-2 rounded-full border border-[#65891c]/50 bg-[#65891c]/15 px-3.5 py-2 font-mono text-[11px] uppercase tracking-[.2em] text-[#bafc0c]">
+        <p className="animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_both] inline-flex items-center gap-2 rounded-full border border-[#65891c]/50 bg-[#65891c]/15 px-3.5 py-2 font-mono text-[11px] uppercase tracking-[.2em] text-[#bafc0c]">
           <span className="size-1.5 rounded-full bg-[#bafc0c] shadow-[0_0_10px_#bafc0c]" />
           Stallion Development Department
         </p>
         <h1 className="mt-6 text-balance text-[42px] font-black leading-[.96] tracking-[-.045em] sm:text-[56px] lg:text-[75px]">
-          WE BUILD DIGITAL
-          <br />
-          PRODUCTS THAT
-          <br />
-          <em className="text-[#bafc0c]">MOVE BUSINESS FORWARD</em>
+          <span className="hero-line"><span className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_both]">WE BUILD DIGITAL</span></span>
+          <span className="hero-line"><span className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_.12s_both]">PRODUCTS THAT</span></span>
+          <span className="hero-line"><em className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_.24s_both] text-[#bafc0c]">MOVE BUSINESS FORWARD</em></span>
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-gray-300 sm:text-[18px]">
+        <p className="mx-auto mt-5 max-w-2xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.45s_both] text-[16px] leading-relaxed text-gray-300 sm:text-[18px]">
           From high-converting websites to scalable software, our development
           team turns ambitious ideas into fast, reliable digital experiences.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3.5">
+        <div className="mt-8 flex animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.6s_both] flex-wrap justify-center gap-3.5">
           <a
             className={`${buttonClass} bg-[#bafc0c] text-[#0a0c0d] shadow-[0_0_30px_rgba(186,252,12,.3)] hover:shadow-[0_0_42px_rgba(186,252,12,.48)]`}
             href="#project-form"
