@@ -14,7 +14,9 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 z-50 flex h-18 w-full items-center justify-between px-5 transition-colors duration-300 sm:px-8 lg:px-16 ${scrolled ? "bg-[#0a0c0d]/90 shadow-lg backdrop-blur-md" : "bg-transparent"}`}>
+    <header
+      className={`fixed top-0 left-0 z-50 flex h-18 w-full items-center justify-between px-5 transition-colors duration-300 sm:px-8 lg:px-16 ${scrolled ? "bg-[#0a0c0d]/90 shadow-lg backdrop-blur-md" : "bg-transparent"}`}
+    >
       <a
         className="flex items-center gap-2 text-xs font-extrabold tracking-[.08em] sm:text-sm"
         href="#top"
@@ -40,6 +42,24 @@ export function Header() {
           href="#development-service"
         >
           Development
+        </a>
+        <a
+          className="hidden px-3 py-2 hover:text-[#bafc0c] lg:block"
+          href="#case-studies"
+        >
+          Case Studies
+        </a>
+        <a
+          className="hidden px-3 py-2 hover:text-[#bafc0c] lg:block"
+          href="#team"
+        >
+          Team
+        </a>
+        <a
+          className="hidden px-3 py-2 hover:text-[#bafc0c] lg:block"
+          href="#faq"
+        >
+          FAQ
         </a>
         <a
           className="ml-1 rounded-xl border-2 border-[#65891c] px-3 py-2 text-white hover:bg-[#65891c]"
