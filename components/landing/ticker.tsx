@@ -26,7 +26,7 @@ export function Ticker() {
         {[...logos, ...logos].map((logo, index) => (
           <div
             key={`${logo}-${index}`}
-            className="mx-2 flex h-10 w-36 shrink-0 items-center justify-center sm:mx-4 sm:w-44"
+            className="flex h-10 w-36 shrink-0 items-center justify-center sm:w-44"
           >
             <Image
               src={`/collab-logos/${logo}`}
