@@ -1,0 +1,5 @@
+import { ArrowRight } from "lucide-react";
+
+export function Closing() {
+  return <section id="project-form" className="relative z-1 mx-auto mt-12 w-[min(100%-2.5rem,980px)] scroll-mt-24 rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#65891c]/20 to-white/[.025] px-5 py-18 text-center sm:px-8"><p className="font-mono text-[11px] uppercase tracking-[.2em] text-[#bafc0c]">READY WHEN YOU ARE</p><h2 className="mt-4 text-[clamp(2rem,5vw,4rem)] font-black leading-none tracking-[-.045em]">Build What&apos;s Next.</h2><p className="mx-auto mt-4 max-w-xl text-[16px] text-[#b6b9bb]">The project form will go here. Tell us what you want to build, and we&apos;ll help turn it into a working product.</p><a className="mt-6 inline-flex min-h-13 items-center justify-center gap-2.5 rounded-xl bg-[#bafc0c] px-5 py-3.5 text-[15px] font-extrabold text-[#0a0c0d] shadow-[0_0_30px_rgba(186,252,12,.3)] transition hover:-translate-y-0.5 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#bafc0c]" href="mailto:advertisingstallion@gmail.com">Contact the development team<ArrowRight size={19} aria-hidden="true" /></a></section>;
+}
