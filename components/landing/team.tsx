@@ -10,6 +10,12 @@ const members = [
   ["Meryem", "Project Manager", "/team/meryem.jpg", "Keeping communication clear, execution smooth, and delivery on time."],
   ["Zakaria", "Graphic Designer", "/team/zakaria.jpg", "Crafting strong visual identities and modern design systems."],
   ["Amine", "Sales", "/team/amine.jpg", "Building client relationships and connecting businesses with the right solutions."],
+  ["Marwan", "Senior Video Editor", "/team/marwan.png", "Creating engaging visual stories through cinematic editing, motion design, and strong storytelling."],
+  ["Ayoub", "Media Buyer", "/team/unknown.png", "Scaling campaigns through data-driven ad optimization, audience targeting, and performance analysis."],
+  ["Achraf", "Sales", "/team/unknown.png", "Building client relationships and turning new opportunities into long-term partnerships."],
+  ["Salma El Ouarzazi", "Sales", "/team/salma.jpeg", "Finding new business opportunities, nurturing relationships, and delivering measurable growth."],
+  ["Nada Ez Zorzar", "Sales", "/team/nada.png", "Connecting businesses with the right solutions through thoughtful client relationships."],
+  ["Yassmine Dhibi", "Sales", "/team/yassmine.png", "Focused on lead conversion, negotiation, and building partnerships that fuel growth."],
 ];
 
 export function Team() {
