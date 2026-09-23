@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Keep original, uncompressed testimonial videos out of Git.
+# The web-ready copies live in public/testimonials/.
+/public/Testemos/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
