@@ -278,7 +278,7 @@ export function Closing() {
                     form.setFieldValue("phone", event.target.value)
                   }
                   className="mt-2 min-h-13 w-full rounded-xl border border-white/12 bg-[#0d1011] px-4 text-[15px] text-white outline-none transition placeholder:text-[#777d7e] focus:border-[#bafc0c]"
-                  placeholder="+212 ..."
+                  placeholder="+31 ..."
                 />
               </label>
             </div>
