@@ -1,13 +1,18 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { useForm } from "@tanstack/react-form";
+import { useForm, useStore } from "@tanstack/react-form";
 import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
 
-declare global { interface Window { fbq?: (...args: unknown[]) => void; } }
-const trackPixel = (event: string, data?: Record<string, unknown>) => window.fbq?.("track", event, data);
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+const trackPixel = (event: string, data?: Record<string, unknown>) =>
+  window.fbq?.("track", event, data);
 
 const projectTypes = [
   "Static website",
@@ -45,9 +50,22 @@ function SelectField({
   onChange: (value: string) => void;
 }) {
   const [open, setOpen] = useState(false);
+  const fieldRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function closeOnOutsideClick(event: PointerEvent) {
+      if (!fieldRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    return () =>
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+  }, []);
 
   return (
-    <div className="relative">
+    <div ref={fieldRef} className="relative">
       <span className="mb-2 block text-[13px] font-semibold text-[#d9dcda]">
         {label}
       </span>
@@ -67,18 +85,23 @@ function SelectField({
         />
       </button>
       {open && (
-        <div role="listbox" aria-label={label} className="absolute left-0 top-full z-[100] mt-2 w-full overflow-hidden rounded-xl border border-white/12 bg-[#171b1c] p-1 shadow-2xl">
+        <div
+          role="listbox"
+          aria-label={label}
+          className="pointer-events-auto absolute left-0 top-full z-[1000] mt-2 w-full overflow-hidden rounded-xl border border-white/12 bg-[#171b1c] p-1 shadow-2xl"
+        >
           {options.map((option) => (
             <button
               key={option}
               type="button"
               role="option"
               aria-selected={value === option}
-              onClick={() => {
+              onClick={(event) => {
+                event.stopPropagation();
                 onChange(option);
                 setOpen(false);
               }}
-              className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-[15px] text-[#e7e9e7] transition hover:bg-[#65891c]/25 hover:text-white"
+              className="flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-3 text-left text-[15px] text-[#e7e9e7] transition hover:bg-[#65891c]/25 hover:text-white"
             >
               {option}
               {value === option && (
@@ -99,7 +122,9 @@ function SelectField({
 export function Closing() {
   const [submitted, setSubmitted] = useState(false);
   const started = useRef(false);
-  useEffect(() => { trackPixel("ViewContent", { content_name: "Free MVP form" }); }, []);
+  useEffect(() => {
+    trackPixel("ViewContent", { content_name: "Free MVP form" });
+  }, []);
   const form = useForm({
     defaultValues: {
       projectType: "",
@@ -111,8 +136,8 @@ export function Closing() {
     },
     onSubmit: async ({ value }) => submitMutation.mutate(value),
   });
-  const projectType = form.state.values.projectType;
-  const timeline = form.state.values.timeline;
+  const projectType = useStore(form.store, (state) => state.values.projectType);
+  const timeline = useStore(form.store, (state) => state.values.timeline);
   const submitMutation = useMutation({
     mutationFn: async (values: typeof form.state.values) => {
       const data = projectSchema.parse(values);
@@ -132,7 +157,10 @@ export function Closing() {
         "noopener,noreferrer",
       );
     },
-    onSuccess: () => { trackPixel("CompleteRegistration", { content_name: "Free MVP request" }); setSubmitted(true); },
+    onSuccess: () => {
+      trackPixel("CompleteRegistration", { content_name: "Free MVP request" });
+      setSubmitted(true);
+    },
   });
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -177,7 +205,11 @@ export function Closing() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} onFocus={handleStart} className="mt-10 space-y-5">
+          <form
+            onSubmit={handleSubmit}
+            onFocus={handleStart}
+            className="mt-10 space-y-5"
+          >
             <div className="grid gap-5 sm:grid-cols-2">
               <SelectField
                 label="Type of product"
