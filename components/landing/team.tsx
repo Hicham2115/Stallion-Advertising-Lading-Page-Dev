@@ -29,7 +29,7 @@ const members = [
   [
     "Hicham",
     "Senior Full Stack Developer, Automation Specialist",
-    "/team/hicham.png",
+    "/team/hicham.png?v=2",
     "Full-stack engineering and automation that keep complex products running without friction.",
   ],
   [
@@ -67,6 +67,12 @@ const members = [
     "Senior Video Editor",
     "/team/marwan.png",
     "Senior video editor creating engaging visual stories through cinematic editing, motion design, and strong storytelling.",
+  ],
+  [
+    "Zakaria",
+    "Graphic Designer",
+    "/team/zakaria.jpg",
+    "Creative graphic designer crafting visually compelling brands through strong identity, typography, and modern design systems.",
   ],
   [
     "Ayoub",
