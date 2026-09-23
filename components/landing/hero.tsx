@@ -37,15 +37,8 @@ export function Hero() {
             </em>
           </span>
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.45s_both] text-[18px] leading-relaxed text-gray-200 sm:text-[24px]">
-          Everything you vision, we can build.
-        </p>
-        <p className="mx-auto mt-4 max-w-2xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.5s_both] text-[16px] leading-relaxed text-gray-300 sm:text-[20px]">
-          App&nbsp;&nbsp;·&nbsp;&nbsp;Software&nbsp;&nbsp;·&nbsp;&nbsp;Web
-          <br />
-          High quality (web &amp; app) development
-          <br />
-          Flexible payments, no high upfront investment!
+        <p className="mx-auto mt-6 max-w-3xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.45s_both] text-[16px] leading-relaxed text-gray-200 sm:text-[20px]">
+          Your idea deserves more than a concept. We turn it into a polished app, software product, or website with high-quality development and flexible payments—without a large upfront investment.
         </p>
         <div className="mt-8 flex animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.6s_both] flex-wrap justify-center gap-3.5">
           <a

@@ -67,11 +67,13 @@ function SelectField({
         />
       </button>
       {open && (
-        <div className="absolute z-20 mt-2 w-full overflow-hidden rounded-xl border border-white/12 bg-[#171b1c] p-1 shadow-2xl">
+        <div role="listbox" aria-label={label} className="absolute left-0 top-full z-[100] mt-2 w-full overflow-hidden rounded-xl border border-white/12 bg-[#171b1c] p-1 shadow-2xl">
           {options.map((option) => (
             <button
               key={option}
               type="button"
+              role="option"
+              aria-selected={value === option}
               onClick={() => {
                 onChange(option);
                 setOpen(false);

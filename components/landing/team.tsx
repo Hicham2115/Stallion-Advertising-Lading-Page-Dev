@@ -29,7 +29,7 @@ const members = [
   [
     "Hicham",
     "Senior Full Stack Developer, Automation Specialist",
-    "/team/hicham.png?v=2",
+    "/team/hicham-new.png",
     "Full-stack engineering and automation that keep complex products running without friction.",
   ],
   [
