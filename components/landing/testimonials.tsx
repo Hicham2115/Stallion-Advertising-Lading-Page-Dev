@@ -1,16 +1,19 @@
-import { Quote } from "lucide-react";
+"use client";
 
-const testimonials = [
-  { quote: "The team gave us a clear path from a visitor arriving on the site to a qualified quote request.", role: "Home services platform", project: "SOSHouse" },
-  { quote: "We stopped treating our product like a collection of pages and started operating it like a real platform.", role: "Education platform", project: "Talk French Canada" },
-  { quote: "The system finally gives our team one place to see the pipeline, the numbers, and what needs attention next.", role: "Internal sales platform", project: "Stallion CRM" },
-];
+import { Maximize2, Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { useRef, useState } from "react";
+
+const videos = ["img_4681", "img_4688", "img_4704", "img_4789", "img_4824"];
 
 export function Testimonials() {
-  return (
-    <section id="testimonials" className="relative z-1 mx-auto w-[min(100%-2.5rem,1180px)] py-20 sm:py-28">
-      <div className="text-center"><p className="inline-flex items-center gap-2 rounded-full border border-[#65891c]/50 bg-[#65891c]/15 px-3.5 py-2 font-mono text-[11px] uppercase tracking-[.2em] text-[#bafc0c]"><span className="size-1.5 rounded-full bg-[#bafc0c]" />Client perspective</p><h2 className="mx-auto mt-5 text-balance text-[40px] font-black leading-none tracking-[-.045em] sm:text-[56px]">Built with trust. <em className="text-[#bafc0c]">Proven in use.</em></h2><p className="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-[#b6b9bb] sm:text-[18px]">The best measure of a product is what it makes possible for the team using it.</p></div>
-      <div className="mt-12 grid gap-5 md:grid-cols-3">{testimonials.map((testimonial) => <figure key={testimonial.project} className="relative rounded-2xl border border-white/10 bg-white/[.03] p-6 transition duration-300 hover:-translate-y-2 hover:border-[#65891c] hover:shadow-[0_0_30px_rgba(186,252,12,.2)]"><Quote className="mb-8 text-[#bafc0c]" size={28} aria-hidden="true" /><blockquote className="text-[18px] font-semibold leading-relaxed tracking-[-.02em]">“{testimonial.quote}”</blockquote><figcaption className="mt-8 border-t border-white/10 pt-4"><p className="text-[14px] font-bold text-[#bafc0c]">{testimonial.project}</p><p className="mt-1 font-mono text-[11px] uppercase tracking-[.12em] text-[#818789]">{testimonial.role}</p></figcaption></figure>)}</div>
-    </section>
-  );
+  const track = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const [playing, setPlaying] = useState<number | null>(null);
+  const [muted, setMuted] = useState(false);
+  const togglePlay = (index: number) => { const video = videoRefs.current[index]; if (!video) return; if (video.paused) { video.play().then(() => setPlaying(index)).catch(() => undefined); } else { video.pause(); setPlaying(null); } };
+  const move = (direction: number) => track.current?.scrollBy({ left: direction * (track.current.clientWidth * 0.82), behavior: "smooth" });
+  return <section id="testimonials" className="relative z-1 mx-auto w-[min(100%-2.5rem,1180px)] py-20 sm:py-28">
+    <div className="flex flex-wrap items-end justify-between gap-6"><div><p className="font-mono text-[11px] uppercase tracking-[.2em] text-[#bafc0c]">Client perspective</p><h2 className="mt-4 text-[40px] font-black leading-none tracking-[-.045em] sm:text-[56px]">Hear it from the <em className="text-[#bafc0c]">people.</em></h2></div><div className="flex gap-2"><button type="button" onClick={() => move(-1)} className="grid size-11 place-items-center rounded-full border border-white/15 text-[22px] text-white hover:border-[#bafc0c]" aria-label="Previous testimonial">←</button><button type="button" onClick={() => move(1)} className="grid size-11 place-items-center rounded-full bg-[#bafc0c] text-[22px] text-[#0a0c0d]" aria-label="Next testimonial">→</button></div></div>
+    <div ref={track} className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">{videos.map((name, index) => <article key={name} className="relative min-w-[86%] snap-start overflow-hidden rounded-3xl border border-white/10 bg-[#111514] sm:min-w-[48%] lg:min-w-[31.5%]"><video ref={(element) => { videoRefs.current[index] = element; }} onClick={() => togglePlay(index)} onEnded={() => setPlaying(null)} className="aspect-[9/14] w-full cursor-pointer object-cover" playsInline muted={muted} preload="metadata" src={`/testimonials/${name}.mp4`} /><div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/90 via-black/55 to-transparent px-4 pb-4 pt-12"><button type="button" onClick={() => togglePlay(index)} className="grid size-10 place-items-center rounded-full bg-[#bafc0c] text-[#0a0c0d]" aria-label={playing === index ? "Pause video" : "Play video"}>{playing === index ? <Pause size={17} /> : <Play size={17} />}</button><div className="flex gap-2"><button type="button" onClick={() => setMuted((value) => !value)} className="grid size-9 place-items-center rounded-full border border-white/30 bg-black/40 text-white" aria-label={muted ? "Unmute video" : "Mute video"}>{muted ? <VolumeX size={16} /> : <Volume2 size={16} />}</button><button type="button" onClick={() => videoRefs.current[index]?.requestFullscreen()} className="grid size-9 place-items-center rounded-full border border-white/30 bg-black/40 text-white" aria-label="Fullscreen video"><Maximize2 size={16} /></button></div></div></article>)}</div>
+  </section>;
 }

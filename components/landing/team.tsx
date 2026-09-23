@@ -2,20 +2,14 @@ import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const members = [
-  ["Abderrahmane", "Co-Founder", "/team/abderrahmane.png", "Driving strategy, innovation, and long-term growth for impactful digital products."],
-  ["Bader", "Co-Founder", "/team/badr.png", "Building the vision and systems that turn ambitious ideas into scalable products."],
-  ["Hicham", "Senior Full Stack Developer", "/team/hicham.jpeg", "Building high-performance, scalable web applications with clean architecture."],
-  ["Mohamed", "Senior Full Stack Developer", "/team/mohamed.jpg", "Turning complex business needs into reliable, scalable, and secure solutions."],
-  ["Said", "Senior Software Engineer", "/team/said.png", "Engineering robust systems with a strong focus on code quality and best practices."],
-  ["Meryem", "Project Manager", "/team/meryem.jpg", "Keeping communication clear, execution smooth, and delivery on time."],
-  ["Zakaria", "Graphic Designer", "/team/zakaria.jpg", "Crafting strong visual identities and modern design systems."],
-  ["Amine", "Sales", "/team/amine.jpg", "Building client relationships and connecting businesses with the right solutions."],
-  ["Marwan", "Senior Video Editor", "/team/marwan.png", "Creating engaging visual stories through cinematic editing, motion design, and strong storytelling."],
-  ["Ayoub", "Media Buyer", "/team/unknown.png", "Scaling campaigns through data-driven ad optimization, audience targeting, and performance analysis."],
-  ["Achraf", "Sales", "/team/unknown.png", "Building client relationships and turning new opportunities into long-term partnerships."],
-  ["Salma El Ouarzazi", "Sales", "/team/salma.jpeg", "Finding new business opportunities, nurturing relationships, and delivering measurable growth."],
-  ["Nada Ez Zorzar", "Sales", "/team/nada.png", "Connecting businesses with the right solutions through thoughtful client relationships."],
-  ["Yassmine Dhibi", "Sales", "/team/yassmine.png", "Focused on lead conversion, negotiation, and building partnerships that fuel growth."],
+  ["Bader", "Co-Founder", "/team/badr.png", "Setting the vision, the offer, and the client relationship behind everything we build."],
+  ["Abderrahmane", "Co-Founder", "/team/abderrahmane.png", "Keeping delivery sharp and the team aligned, project after project."],
+  ["Said", "CTO, Senior Software Engineer & AI Specialist", "/team/said.png", "Architecting the systems and AI behind our most technically demanding builds."],
+  ["Hicham", "Senior Full Stack Developer, Automation Specialist", "/team/hicham.jpeg", "Full-stack engineering and automation that keep complex products running without friction."],
+  ["Mohammed", "Senior Full Stack Developer", "/team/mohamed.jpg", "Building reliable, production-ready features across the full stack, from database to interface."],
+  ["Anas", "Junior Full Stack Developer", "/team/unknown.png", "Full-stack support across every active project, learning fast and shipping faster."],
+  ["Salma", "Head of Sales", "/team/salma.jpeg", "Leading the sales team and turning first conversations into signed, delivered projects."],
+  ["Sales Team", "—", "/team/unknown.png", "The team behind every call and every follow-up, from your first message to a booked meeting."],
 ];
 
 export function Team() {

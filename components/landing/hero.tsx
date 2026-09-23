@@ -23,22 +23,25 @@ export function Hero() {
       <div className="w-full max-w-[1050px] px-5 pt-28 pb-18 text-center">
         <p className="animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_both] inline-flex items-center gap-2 rounded-full border border-[#65891c]/50 bg-[#65891c]/15 px-3.5 py-2 font-mono text-[11px] uppercase tracking-[.2em] text-[#bafc0c]">
           <span className="size-1.5 rounded-full bg-[#bafc0c] shadow-[0_0_10px_#bafc0c]" />
-          Stallion Development Department
+          Get a Free MVP
         </p>
-        <h1 className="mt-6 text-balance text-[42px] font-black leading-[.96] tracking-[-.045em] sm:text-[56px] lg:text-[95px]">
+        <h1 className="mt-6 text-balance text-[42px] font-black leading-[.96] tracking-[-.045em] sm:text-[56px] lg:text-[85px]">
           <span className="hero-line">
             <span className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_both]">
-              Everything you vision,
+              Take the first step towards
             </span>
           </span>
           <span className="hero-line">
             <em className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_.12s_both] text-[#bafc0c]">
-              we can build.
+              scaling your business
             </em>
           </span>
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.45s_both] text-[16px] leading-relaxed text-gray-300 sm:text-[20px]">
-          App&nbsp;&nbsp;&nbsp;&nbsp;Software&nbsp;&nbsp;&nbsp;&nbsp;Web
+        <p className="mx-auto mt-5 max-w-2xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.45s_both] text-[18px] leading-relaxed text-gray-200 sm:text-[24px]">
+          Everything you vision, we can build.
+        </p>
+        <p className="mx-auto mt-4 max-w-2xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.5s_both] text-[16px] leading-relaxed text-gray-300 sm:text-[20px]">
+          App&nbsp;&nbsp;·&nbsp;&nbsp;Software&nbsp;&nbsp;·&nbsp;&nbsp;Web
           <br />
           High quality (web &amp; app) development
           <br />
@@ -50,7 +53,7 @@ export function Hero() {
             href="#project-form"
           >
             <Rocket size={19} aria-hidden="true" />
-            Start a Development Project
+            Get a Free MVP
             <ArrowRight size={19} aria-hidden="true" />
           </a>
         </div>

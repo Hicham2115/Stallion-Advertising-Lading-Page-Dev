@@ -1,10 +1,13 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { useForm } from "@tanstack/react-form";
 import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
+
+declare global { interface Window { fbq?: (...args: unknown[]) => void; } }
+const trackPixel = (event: string, data?: Record<string, unknown>) => window.fbq?.("track", event, data);
 
 const projectTypes = [
   "Static website",
@@ -93,6 +96,8 @@ function SelectField({
 
 export function Closing() {
   const [submitted, setSubmitted] = useState(false);
+  const started = useRef(false);
+  useEffect(() => { trackPixel("ViewContent", { content_name: "Free MVP form" }); }, []);
   const form = useForm({
     defaultValues: {
       projectType: "",
@@ -125,12 +130,19 @@ export function Closing() {
         "noopener,noreferrer",
       );
     },
-    onSuccess: () => setSubmitted(true),
+    onSuccess: () => { trackPixel("CompleteRegistration", { content_name: "Free MVP request" }); setSubmitted(true); },
   });
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    trackPixel("Lead", { content_name: "Free MVP request" });
     form.handleSubmit();
+  }
+
+  function handleStart() {
+    if (started.current) return;
+    started.current = true;
+    trackPixel("InitiateCheckout", { content_name: "Free MVP form" });
   }
 
   return (
@@ -163,7 +175,7 @@ export function Closing() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-10 space-y-5">
+          <form onSubmit={handleSubmit} onFocus={handleStart} className="mt-10 space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <SelectField
                 label="Type of product"
