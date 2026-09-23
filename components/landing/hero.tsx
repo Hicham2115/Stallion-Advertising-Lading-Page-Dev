@@ -28,17 +28,19 @@ export function Hero() {
         <h1 className="mt-6 text-balance text-[42px] font-black leading-[.96] tracking-[-.045em] sm:text-[56px] lg:text-[85px]">
           <span className="hero-line">
             <span className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_both]">
-              Take the first step towards
+              Everything you vision
             </span>
           </span>
           <span className="hero-line">
             <em className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_.12s_both] text-[#bafc0c]">
-              scaling your business
+              we can build.
             </em>
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-3xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.45s_both] text-[16px] leading-relaxed text-gray-200 sm:text-[20px]">
-          Your idea deserves more than a concept. We turn it into a polished app, software product, or website with high-quality development and flexible payments—without a large upfront investment.
+          Your idea deserves more than a concept. We turn it into a polished
+          app, software product, or website with high-quality development and
+          flexible payments—without a large upfront investment.
         </p>
         <div className="mt-8 flex animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.6s_both] flex-wrap justify-center gap-3.5">
           <a
