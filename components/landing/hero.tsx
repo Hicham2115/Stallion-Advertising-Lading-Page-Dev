@@ -25,14 +25,24 @@ export function Hero() {
           <span className="size-1.5 rounded-full bg-[#bafc0c] shadow-[0_0_10px_#bafc0c]" />
           Stallion Development Department
         </p>
-        <h1 className="mt-6 text-balance text-[42px] font-black leading-[.96] tracking-[-.045em] sm:text-[56px] lg:text-[75px]">
-          <span className="hero-line"><span className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_both]">WE BUILD DIGITAL</span></span>
-          <span className="hero-line"><span className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_.12s_both]">PRODUCTS THAT</span></span>
-          <span className="hero-line"><em className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_.24s_both] text-[#bafc0c]">MOVE BUSINESS FORWARD</em></span>
+        <h1 className="mt-6 text-balance text-[42px] font-black leading-[.96] tracking-[-.045em] sm:text-[56px] lg:text-[95px]">
+          <span className="hero-line">
+            <span className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_both]">
+              Everything you vision,
+            </span>
+          </span>
+          <span className="hero-line">
+            <em className="animate-[hero-line-in_.8s_cubic-bezier(.22,1,.36,1)_.12s_both] text-[#bafc0c]">
+              we can build.
+            </em>
+          </span>
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.45s_both] text-[16px] leading-relaxed text-gray-300 sm:text-[18px]">
-          From high-converting websites to scalable software, our development
-          team turns ambitious ideas into fast, reliable digital experiences.
+        <p className="mx-auto mt-5 max-w-2xl animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.45s_both] text-[16px] leading-relaxed text-gray-300 sm:text-[20px]">
+          App&nbsp;&nbsp;&nbsp;&nbsp;Software&nbsp;&nbsp;&nbsp;&nbsp;Web
+          <br />
+          High quality (web &amp; app) development
+          <br />
+          Flexible payments, no high upfront investment!
         </p>
         <div className="mt-8 flex animate-[hero-fade-up_.7s_cubic-bezier(.22,1,.36,1)_.6s_both] flex-wrap justify-center gap-3.5">
           <a
