@@ -32,12 +32,6 @@ export function Header() {
         aria-label="Main navigation"
       >
         <a
-          className="hidden px-3 py-2 hover:text-[#bafc0c] sm:block"
-          href="#top"
-        >
-          Home
-        </a>
-        <a
           className="hidden px-3 py-2 hover:text-[#bafc0c] md:block"
           href="#development-service"
         >

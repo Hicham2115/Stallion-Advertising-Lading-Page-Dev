@@ -287,7 +287,8 @@ export function Closing() {
               disabled={!projectType || !timeline}
               className="inline-flex min-h-13 w-full items-center justify-center gap-2.5 rounded-xl bg-[#bafc0c] px-5 py-3.5 text-[15px] font-extrabold text-[#0a0c0d] shadow-[0_0_30px_rgba(186,252,12,.3)] transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#bafc0c]"
             >
-              Send project details <ArrowRight size={19} aria-hidden="true" />
+              Get a Free MVP
+              <ArrowRight size={19} aria-hidden="true" />
             </button>
           </form>
         )}
