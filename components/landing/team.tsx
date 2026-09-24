@@ -34,7 +34,7 @@ const members = [
   ],
   [
     "Mohammed",
-    "Senior Full Stack Developer",
+    "Senior Full Stack Developer , Seo Expert",
     "/team/mohamed.jpg",
     "Building reliable, production-ready features across the full stack, from database to interface.",
   ],
