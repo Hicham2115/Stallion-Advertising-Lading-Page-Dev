@@ -56,12 +56,12 @@ const members = [
     "/team/meryem.jpg",
     "Organized project manager ensuring smooth execution, clear communication, and on-time delivery across all projects.",
   ],
-  [
-    "Amine",
-    "Sales",
-    "/team/amine.jpg",
-    "The team behind every call and every follow-up, from your first message to a booked meeting.",
-  ],
+  // [
+  //   "Amine",
+  //   "Sales",
+  //   "/team/amine.jpg",
+  //   "The team behind every call and every follow-up, from your first message to a booked meeting.",
+  // ],
   [
     "Marwan",
     "Senior Video Editor",
