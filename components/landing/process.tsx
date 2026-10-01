@@ -47,7 +47,7 @@ export function Process() {
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-[#aeb3b6]">
           A visible, focused path from the first conversation to a product your
-          customers can use.
+          customers can use.  
         </p>
       </div>
       <div className="relative mt-14">
