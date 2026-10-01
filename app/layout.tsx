@@ -24,7 +24,14 @@ export const metadata: Metadata = {
     siteName: "Stallion Advertising",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/unicorn.png", width: 512, height: 512, alt: "Stallion Advertising" }],
+    images: [
+      {
+        url: "/unicorn.png",
+        width: 512,
+        height: 512,
+        alt: "Stallion Advertising",
+      },
+    ],
   },
   twitter: {
     card: "summary",
@@ -33,7 +40,11 @@ export const metadata: Metadata = {
       "Websites, software, and digital products built by Stallion's development team.",
     images: ["/unicorn.png"],
   },
-  icons: { icon: "/unicorn.png", shortcut: "/unicorn.png", apple: "/unicorn.png" },
+  icons: {
+    icon: "/unicorn.png",
+    shortcut: "/unicorn.png",
+    apple: "/unicorn.png",
+  },
   robots: {
     index: true,
     follow: true,
@@ -58,7 +69,15 @@ n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
 s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');fbq('init','1074832125424906');fbq('track','PageView');`}
         </Script>
-        <noscript><img height="1" width="1" style={{ display: "none" }} src="https://www.facebook.com/tr?id=1074832125424906&ev=PageView&noscript=1" alt="" /></noscript>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1074832125424906&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
         <Providers>{children}</Providers>
       </body>
     </html>
